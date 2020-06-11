@@ -1,20 +1,31 @@
 var saveBtn = $(".saveBtn");
 
 
+
+
+
+
 $(document).ready(function() {
     $("#currentDay").text(moment().format("dddd, MMMM Do"));
 console.log(moment().format("dddd, MMMM Do"));
    
 colorTime();
 
+
+
+
+
 function localStorage(key) {
     var inputValue = localStorage.getItem(key);
-    if (value) {
-        $("#text${key}").text(value);
+   
     }
 }
 
-});
+);
+
+
+
+
 
 function colorTime() {
     var nowTime = moment().hours;
@@ -37,7 +48,9 @@ function colorTime() {
     });
 };
 
-
+saveBtn.on("click", function localStorage() {
+    alert("Saved!");
+});
 
 
 
