@@ -1,32 +1,33 @@
-
-var moment = moment();
-$("#currentDay").text(moment.format("dddd, MMMM Do"));
-
-var text;
-var time;
-
-
-
+var saveBtn = $(".saveBtn");
 
 
 $(document).ready(function() {
-    color();
-    showText();
+    $("#currentDay").text(moment().format("dddd, MMMM Do"));
+console.log(moment().format("dddd, MMMM Do"));
+   
+colorTime();
+
+function localStorage(key) {
+    var inputValue = localStorage.getItem(key);
+    if (value) {
+        $("#text${key}").text(value);
+    }
+}
+
 });
 
-function color() {
-    var time = moment().hours();
-    
+function colorTime() {
+    var nowTime = moment().hours;
     $(".text").each(function() {
-        var timeTest = parseInt($(this).attr("id"));
-        
-        if (time > timeTest) {
+        var hourTime = parseInt($(this).attr("id"));
+
+        if (nowTime > hourTime) {
             $(this).removeClass("future");
             $(this).removeClass("present");
+            $(this).addClass("past");
+        } else if (nowTime < hourTime) {
             $(this).removeClass("past");
-        } else if (time < timeTest) {
             $(this).removeClass("present");
-            $(this).removeClass("past");
             $(this).addClass("future");
         } else {
             $(this).removeClass("future");
@@ -35,3 +36,8 @@ function color() {
         }
     });
 };
+
+
+
+
+
